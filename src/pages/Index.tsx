@@ -4,6 +4,9 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Badge } from '@/components/ui/badge';
 import Icon from '@/components/ui/icon';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
+import RefundPolicy from './RefundPolicy';
+import PrivacyPolicy from './PrivacyPolicy';
+import TermsOfService from './TermsOfService';
 
 interface GameKey {
   id: number;
@@ -347,7 +350,27 @@ const Index = () => {
         </section>
       )}
 
+      {/* Legal Pages */}
+      {(activeSection === 'refund' || activeSection === 'privacy' || activeSection === 'terms') && (
+        <div className="bg-white py-6">
+          <div className="container mx-auto px-4">
+            <Button 
+              variant="outline" 
+              onClick={() => setActiveSection('home')}
+              className="mb-4"
+            >
+              <Icon name="ArrowLeft" size={18} className="mr-2" />
+              Назад в магазин
+            </Button>
+          </div>
+        </div>
+      )}
+      {activeSection === 'refund' && <RefundPolicy />}
+      {activeSection === 'privacy' && <PrivacyPolicy />}
+      {activeSection === 'terms' && <TermsOfService />}
+
       {/* Features */}
+      {activeSection === 'home' && (
       <section className="bg-white py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">
@@ -383,6 +406,7 @@ const Index = () => {
       </section>
 
       {/* Footer */}
+      )}
       <footer className="bg-gray-900 text-white py-8">
         <div className="container mx-auto px-4">
           <div className="text-center">
@@ -395,36 +419,21 @@ const Index = () => {
               <Button 
                 variant="ghost" 
                 size="sm"
-                onClick={() => {
-                  const newWindow = window.open();
-                  if (newWindow) {
-                    newWindow.location.href = '/src/pages/RefundPolicy.tsx';
-                  }
-                }}
+                onClick={() => setActiveSection('refund')}
               >
                 Политика возврата
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm"
-                onClick={() => {
-                  const newWindow = window.open();
-                  if (newWindow) {
-                    newWindow.location.href = '/src/pages/PrivacyPolicy.tsx';
-                  }
-                }}
+                onClick={() => setActiveSection('privacy')}
               >
                 Конфиденциальность
               </Button>
               <Button 
                 variant="ghost" 
                 size="sm"
-                onClick={() => {
-                  const newWindow = window.open();
-                  if (newWindow) {
-                    newWindow.location.href = '/src/pages/TermsOfService.tsx';
-                  }
-                }}
+                onClick={() => setActiveSection('terms')}
               >
                 Пользовательское соглашение
               </Button>

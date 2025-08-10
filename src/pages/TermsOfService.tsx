@@ -5,25 +5,8 @@ import Icon from '@/components/ui/icon';
 
 const TermsOfService = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b">
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-2">
-              <Icon name="Gamepad2" size={32} className="text-primary" />
-              <h1 className="text-2xl font-bold text-gray-900">SteamKeys Store</h1>
-            </div>
-            <Button variant="outline" onClick={() => window.history.back()}>
-              <Icon name="ArrowLeft" size={18} className="mr-2" />
-              Назад
-            </Button>
-          </div>
-        </div>
-      </header>
-
-      {/* Content */}
-      <div className="container mx-auto px-4 py-12">
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="container mx-auto px-4">
         <Card className="max-w-4xl mx-auto">
           <CardHeader>
             <CardTitle className="text-3xl text-center text-gray-900">
