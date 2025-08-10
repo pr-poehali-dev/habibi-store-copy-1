@@ -22,7 +22,7 @@ interface CartItem extends GameKey {
 
 const Index = () => {
   const [cart, setCart] = useState<CartItem[]>([]);
-  const [activeSection, setActiveSection] = useState('catalog');
+  const [activeSection, setActiveSection] = useState('home');
 
   const gameKeys: GameKey[] = [
     {
@@ -392,9 +392,42 @@ const Index = () => {
             </div>
             <p className="text-gray-400 mb-4">Лучший магазин игровых ключей</p>
             <div className="flex justify-center space-x-6">
-              <Button variant="ghost" size="sm">О нас</Button>
-              <Button variant="ghost" size="sm">Поддержка</Button>
-              <Button variant="ghost" size="sm">Контакты</Button>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => {
+                  const newWindow = window.open();
+                  if (newWindow) {
+                    newWindow.location.href = '/src/pages/RefundPolicy.tsx';
+                  }
+                }}
+              >
+                Политика возврата
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => {
+                  const newWindow = window.open();
+                  if (newWindow) {
+                    newWindow.location.href = '/src/pages/PrivacyPolicy.tsx';
+                  }
+                }}
+              >
+                Конфиденциальность
+              </Button>
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={() => {
+                  const newWindow = window.open();
+                  if (newWindow) {
+                    newWindow.location.href = '/src/pages/TermsOfService.tsx';
+                  }
+                }}
+              >
+                Пользовательское соглашение
+              </Button>
             </div>
             <div className="border-t border-gray-700 mt-8 pt-4">
               <p className="text-gray-400 text-sm">© 2024 SteamKeys Store. Все права защищены.</p>
